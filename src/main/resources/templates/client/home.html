@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Schedule Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f6f9fc, #e9eff5);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        strong {
+            display: block;
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        span {
+            display: inline-block;
+            margin-top: 4px;
+            color: #555;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Schedule Me</h1>
+<h3>Choose a service you want</h3>
+<ul>
+    <li th:each="t : ${treatments}">
+        <strong th:text="${t.name}"></strong>
+        <span th:text="${t.description}"></span><br>
+        Duration: <span th:text="${t.durationInMin}"></span> min<br>
+        Price: <span th:text="${t.price}"></span> RSD
+        <form th:action="@{'/reserve/' + ${t.name}}" method="get">
+            <button type="submit">Select</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

@@ -60,7 +60,7 @@ public class AppointmentController {
         return "redirect:/confirmation"; //ne radi
     }
 
-    @GetMapping("/confirmation")
+    @GetMapping("/confirmation") 
     public String showConfirmation(){
         return "client/confirmation";
     }

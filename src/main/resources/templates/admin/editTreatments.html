@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Treatment</title>
+</head>
+<body>
+<h1>Edit Treatment</h1>
+
+<form th:action="@{/admin/treatments/editTreatment}" method="post">
+    <input type="hidden" name="originalName" th:value="${treatment.name}" />
+
+    <label>Name: <input type="text" name="name" th:value="${treatment.name}" required /></label><br>
+    <label>Description: <input type="text" name="description" th:value="${treatment.description}" required /></label><br>
+    <label>Duration (min): <input type="number" name="durationInMin" th:value="${treatment.durationInMin}" required /></label><br>
+    <label>Price (RSD): <input type="number" name="price" step="0.01" th:value="${treatment.price}" required /></label><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a th:href="@{/admin/treatments}">Back to Treatment List</a>
+</body>
+</html>

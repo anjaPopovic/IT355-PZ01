@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TreatmentService {
@@ -38,5 +39,29 @@ public class TreatmentService {
 
     public List<Treatment> getAllTreatments(){
         return db.getAllTreatments();
+    }
+
+    //to select treatment
+    public Optional<Treatment> getTreatmentByName(String name){
+        return db.getAllTreatments().stream().filter(t -> t.getName().equalsIgnoreCase(name)).findFirst();
+    }
+    //to delete treatment
+    public void deleteTreatment(String name, String description){
+        db.getAllTreatments().removeIf(t -> t.getName().equalsIgnoreCase(name) && t.getDescription().equalsIgnoreCase(description));
+    }
+
+    //to edit treatment
+    public void editTreatment(String originalName, Treatment treatment){
+        for(int i = 0; i < db.getAllTreatments().size(); i++){
+            if(db.getAllTreatments().get(i).getName().equalsIgnoreCase(originalName)){
+                db.getAllTreatments().set(i, treatment);
+                return;
+            }
+        }
+    }
+
+    //to add treatment
+    public void addTreatment(Treatment treatment){
+        db.addTreatment(treatment);
     }
 }

@@ -13,7 +13,7 @@ public class AdminController {
         if (!"ADMIN".equals(role)) {
             return "redirect:/";
         }
-        return "adminDashboard";
+        return "admin/adminDashboard";
     }
 
 }

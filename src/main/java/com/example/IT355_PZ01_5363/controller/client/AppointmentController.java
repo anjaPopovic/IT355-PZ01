@@ -4,6 +4,7 @@ import com.example.IT355_PZ01_5363.model.Client;
 import com.example.IT355_PZ01_5363.model.Employee;
 import com.example.IT355_PZ01_5363.model.Treatment;
 import com.example.IT355_PZ01_5363.service.AppointmentService;
+import com.example.IT355_PZ01_5363.service.TreatmentService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +21,16 @@ import java.util.Optional;
 @Controller
 public class AppointmentController {
     private final AppointmentService appointmentService;
+    private final TreatmentService treatmentService;
 
-    public AppointmentController(AppointmentService appointmentService) {
+    public AppointmentController(AppointmentService appointmentService, TreatmentService treatmentService) {
         this.appointmentService = appointmentService;
+        this.treatmentService = treatmentService;
     }
 
     @GetMapping("/reserve/{treatmentName}")
     public String showReservationForm(@PathVariable String treatmentName, Model model){
-        Optional<Treatment> treatment = appointmentService.getTreatmentByName(treatmentName);
+        Optional<Treatment> treatment = treatmentService.getTreatmentByName(treatmentName);
         if(treatment.isEmpty()){
             return "redirect:/home";
         }
@@ -48,7 +51,7 @@ public class AppointmentController {
         System.out.println(username);
         Optional<Client> chosenClient = appointmentService.getClient(username);
         Optional<Employee> chosenEmployee = appointmentService.getEmployee(employeeName);
-        Optional<Treatment> chosenTreatment = appointmentService.getTreatmentByName(treatmentName);
+        Optional<Treatment> chosenTreatment = treatmentService.getTreatmentByName(treatmentName);
 
         if(chosenClient.isPresent() && chosenEmployee.isPresent() && chosenTreatment.isPresent()){
             appointmentService.createAppointment(chosenClient.get(), chosenEmployee.get(), chosenTreatment.get(), date, time);

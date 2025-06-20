@@ -7,7 +7,6 @@ import com.example.IT355_PZ01_5363.model.Treatment;
 import com.example.IT355_PZ01_5363.repository.DB;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -22,10 +21,7 @@ public class AppointmentService {
         this.db = db;
     }
 
-    //to select treatment
-    public Optional<Treatment> getTreatmentByName(String name){
-        return db.getAllTreatments().stream().filter(t -> t.getName().equalsIgnoreCase(name)).findFirst();
-    }
+
 
     //to get all employees for chosen treatment
     public List<Employee> getEmployeesForTreatment(String treatment){

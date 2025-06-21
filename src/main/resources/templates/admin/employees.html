@@ -1,15 +1,115 @@
 <!doctype html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
     <title>Employees</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .table-container {
+            background: #1f1f38;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c2c50;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #2a2a45;
+        }
+
+        tr:hover {
+            background-color: #3a3a60;
+        }
+
+        td {
+            color: #e0e0ff;
+        }
+        .back-link {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #a3a3ff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #c0c0ff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            tr {
+                margin-bottom: 1rem;
+                background-color: #2a2a45;
+                border-radius: 8px;
+                padding: 1rem;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                margin-bottom: 0.3rem;
+                color: #a3a3ff;
+            }
+
+            th {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+
+<div class="table-container">
     <h1>List of All Employees</h1>
-    <table border="1">
+
+    <table>
         <thead>
         <tr>
             <th>Name</th>
@@ -19,11 +119,16 @@
         </thead>
         <tbody>
         <tr th:each="employee : ${employees}">
-            <td th:text="${employee.name}"></td>
-            <td th:text="${employee.specialization}"></td>
-            <td th:text="${#strings.listJoin(employee.treatments, ', ')}"></td>
+            <td data-label="Name" th:text="${employee.name}"></td>
+            <td data-label="Specialization" th:text="${employee.specialization}"></td>
+            <td data-label="Treatments" th:text="${#strings.listJoin(employee.treatments, ', ')}"></td>
         </tr>
         </tbody>
     </table>
+
+    <a th:href="@{/admin/dashboard}" class="back-link">←Back to Dashboard</a>
+
+</div>
+
 </body>
 </html>

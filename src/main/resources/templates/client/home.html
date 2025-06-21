@@ -1,79 +1,118 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Schedule Me</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #f6f9fc, #e9eff5);
-            margin: 0;
-            padding: 0;
+        * {
+            box-sizing: border-box;
         }
 
-        h1, h3 {
-            text-align: center;
-            color: #2c3e50;
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #d0d4f7;
         }
 
         ul {
             list-style: none;
             padding: 0;
+            width: 100%;
             max-width: 700px;
-            margin: 20px auto;
         }
 
         li {
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background: #1f1f38;
             border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            color: #e0e0ff;
         }
 
         strong {
+            font-size: 1.3rem;
+            color: #a3a3ff;
             display: block;
-            font-size: 1.2em;
-            color: #34495e;
+            margin-bottom: 6px;
         }
 
         span {
             display: inline-block;
-            margin-top: 4px;
-            color: #555;
+            color: #c0c0ff;
+            margin-bottom: 10px;
+        }
+
+        /* Details styling */
+        .details {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #bbbcee;
         }
 
         form {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         button {
-            background-color: #3498db;
+            background-color: #667eea;
             color: white;
             border: none;
-            padding: 8px 14px;
+            padding: 12px 25px;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #2980b9;
+            background-color: #5463d3;
+        }
+
+        @media (max-width: 768px) {
+            li {
+                padding: 15px;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px 0;
+            }
         }
     </style>
 </head>
 <body>
 <h1>Welcome to Schedule Me</h1>
 <h3>Choose a service you want</h3>
+
 <ul>
     <li th:each="t : ${treatments}">
         <strong th:text="${t.name}"></strong>
-        <span th:text="${t.description}"></span><br>
-        Duration: <span th:text="${t.durationInMin}"></span> min<br>
-        Price: <span th:text="${t.price}"></span> RSD
+        <span th:text="${t.description}"></span>
+        <div class="details">
+            Duration: <span th:text="${t.durationInMin}"></span> min<br>
+            Price: <span th:text="${t.price}"></span> RSD
+        </div>
         <form th:action="@{'/reserve/' + ${t.name}}" method="get">
             <button type="submit">Select</button>
         </form>

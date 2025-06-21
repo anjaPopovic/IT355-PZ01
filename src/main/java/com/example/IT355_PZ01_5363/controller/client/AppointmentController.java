@@ -57,7 +57,7 @@ public class AppointmentController {
             appointmentService.createAppointment(chosenClient.get(), chosenEmployee.get(), chosenTreatment.get(), date, time);
         }
 
-        return "redirect:/confirmation"; //ne radi
+        return "redirect:/confirmation";
     }
 
     @GetMapping("/confirmation") 

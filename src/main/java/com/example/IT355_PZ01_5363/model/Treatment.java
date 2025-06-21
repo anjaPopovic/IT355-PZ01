@@ -11,5 +11,10 @@ public class Treatment {
     private String name;
     private String description;
     private int durationInMin;
-    private Double price;
+    private double price;
+
+    @Override
+    public String toString() {
+        return name + '\'' + description;
+    }
 }

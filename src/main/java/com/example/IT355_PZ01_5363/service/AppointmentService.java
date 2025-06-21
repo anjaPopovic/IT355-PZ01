@@ -21,8 +21,6 @@ public class AppointmentService {
         this.db = db;
     }
 
-
-
     //to get all employees for chosen treatment
     public List<Employee> getEmployeesForTreatment(String treatment){
        return db.getAllEmployees().stream().filter(e -> e.getTreatments().contains(treatment)).collect(Collectors.toList());
@@ -41,5 +39,9 @@ public class AppointmentService {
     public void createAppointment(Client client, Employee employee, Treatment treatment, LocalDate date, LocalTime time){
         Appointment appointment = new Appointment(client, employee, treatment, date, time);
         db.getAllAppointments().add(appointment);
+    }
+
+    public List<Appointment> getAllAppointments(){
+        return db.getAllAppointments();
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.Optional;
 
 @Controller
@@ -43,18 +42,17 @@ public class TreatmentController {
     }
 
     @PostMapping("/admin/treatments/editTreatment")
-public String handleEditTreatment(@RequestParam String originalName, @RequestParam String name, @RequestParam String description, @RequestParam int durationInMin, @RequestParam Double price){
+public String handleEditTreatment(@RequestParam String originalName, @RequestParam String name, @RequestParam String description, @RequestParam int durationInMin, @RequestParam double price){
         treatmentService.editTreatment(originalName, new Treatment(name, description, durationInMin, price));
         return "redirect:/admin/treatments";
     }
 
     //to add treatment
     @PostMapping("/admin/treatments/addTreatment")
-    public String handleAddTreatment(@RequestParam String name, @RequestParam String description, @RequestParam int durationInMin, @RequestParam Double price){
+    public String handleAddTreatment(@RequestParam String name, @RequestParam String description, @RequestParam int durationInMin, @RequestParam double price){
         Treatment treatment = new Treatment(name, description, durationInMin, price);
         treatmentService.addTreatment(treatment);
         return "redirect:/admin/treatments";
     }
-
 
 }

@@ -11,11 +11,11 @@ import java.util.List;
 @Getter
 public class DB {
 
-    private List<Client> allClients = new ArrayList<>();
-    private List<Employee> allEmployees = new ArrayList<>();
-    private List<Treatment> allTreatments = new ArrayList<>();
-    private List<Feedback> allFeedbacks = new ArrayList<>();
-    private List<Appointment> allAppointments = new ArrayList<>();
+    private final List<Client> allClients = new ArrayList<>();
+    private final List<Employee> allEmployees = new ArrayList<>();
+    private final List<Treatment> allTreatments = new ArrayList<>();
+    private final List<Review> allReviews = new ArrayList<>();
+    private final List<Appointment> allAppointments = new ArrayList<>();
 
     public void addEmployee(Employee employee){
         allEmployees.add(employee);

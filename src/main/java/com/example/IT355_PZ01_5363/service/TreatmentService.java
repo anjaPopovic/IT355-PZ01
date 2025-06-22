@@ -45,6 +45,7 @@ public class TreatmentService {
     public Optional<Treatment> getTreatmentByName(String name){
         return db.getAllTreatments().stream().filter(t -> t.getName().equalsIgnoreCase(name)).findFirst();
     }
+
     //to delete treatment
     public void deleteTreatment(String name, String description){
         db.getAllTreatments().removeIf(t -> t.getName().equalsIgnoreCase(name) && t.getDescription().equalsIgnoreCase(description));

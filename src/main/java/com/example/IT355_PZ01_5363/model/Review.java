@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Feedback {
+public class Review {
     private Client client;
-    private Appointment appointment;
+    private String content;
     private int rating;
-    private String comment;
 }

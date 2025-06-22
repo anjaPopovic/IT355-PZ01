@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #d0d4f7;
+}
+
+/*for home*/
+ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 700px;
+}
+
+li {
+    background: #1f1f38;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    color: #e0e0ff;
+}
+
+strong {
+    font-size: 1.3rem;
+    color: #a3a3ff;
+    display: block;
+    margin-bottom: 6px;
+}
+
+span {
+    display: inline-block;
+    color: #c0c0ff;
+    margin-bottom: 10px;
+}
+
+.details {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #bbbcee;
+}
+
+
+button {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5463d3;
+}
+
+@media (max-width: 768px) {
+    li {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
+
+
+/*for confirmation*/
+.container {
+    background: #1f1f38;
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+/*for reservation*/
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #b0b3ff;
+}
+
+input[type="date"],
+input[type="time"],
+select {
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    background-color: #333659;
+    color: #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    box-shadow: 0 0 8px 2px #667eea;
+    background-color: #424a7d;
+}
+
+/*for review*/
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    background-color: #333659;
+    color: #ddd;
+    transition: box-shadow 0.3s ease;
+    resize: vertical;
+}
+
+input[type="number"]:focus,
+textarea:focus {
+    box-shadow: 0 0 8px 2px #667eea;
+    background-color: #424a7d;
+}

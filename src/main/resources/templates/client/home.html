@@ -5,105 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Schedule Me</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        body{
             min-height: 100vh;
-            display: flex;
             flex-direction: column;
-            align-items: center;
-            color: #fff;
-            padding: 2rem;
-        }
-
-        h1 {
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 0.3rem;
-        }
-
-        h3 {
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: #d0d4f7;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-            max-width: 700px;
-        }
-
-        li {
-            background: #1f1f38;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            color: #e0e0ff;
-        }
-
-        strong {
-            font-size: 1.3rem;
-            color: #a3a3ff;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        span {
-            display: inline-block;
-            color: #c0c0ff;
-            margin-bottom: 10px;
-        }
-
-        /* Details styling */
-        .details {
-            margin-top: 10px;
-            font-size: 0.95rem;
-            color: #bbbcee;
         }
 
         form {
             margin-top: 15px;
         }
-
-        button {
-            background-color: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #5463d3;
-        }
-
-        @media (max-width: 768px) {
-            li {
-                padding: 15px;
-            }
-
-            button {
-                width: 100%;
-                padding: 12px 0;
-            }
+        h1{
+            margin-bottom: 0.3rem;
         }
     </style>
 </head>
 <body>
 <h1>Welcome to Schedule Me</h1>
 <h3>Choose a service you want</h3>
+
+<div th:if="${param.success}">
+    <p style="color: green; font-weight: bold;">Review successfully submitted!</p>
+</div>
 
 <ul>
     <li th:each="t : ${treatments}">
@@ -118,5 +39,7 @@
         </form>
     </li>
 </ul>
+
 </body>
 </html>
+<link rel="stylesheet" th:href="@{/css/style.css}">

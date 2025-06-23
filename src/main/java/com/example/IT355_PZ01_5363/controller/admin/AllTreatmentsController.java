@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-public class TreatmentController {
+public class AllTreatmentsController {
     private final TreatmentService treatmentService;
 
-    public TreatmentController(TreatmentService treatmentService) {
+    public AllTreatmentsController(TreatmentService treatmentService) {
         this.treatmentService = treatmentService;
     }
 

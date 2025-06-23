@@ -1,45 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schedule Me</title>
-    <style>
-        body{
-            min-height: 100vh;
-            flex-direction: column;
-        }
-
-        form {
-            margin-top: 15px;
-        }
-        h1{
-            margin-bottom: 0.3rem;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Welcome to Schedule Me</h1>
-<h3>Choose a service you want</h3>
-
 <div th:if="${param.success}">
     <p style="color: green; font-weight: bold;">Review successfully submitted!</p>
 </div>
-
-<ul>
-    <li th:each="t : ${treatments}">
-        <strong th:text="${t.name}"></strong>
-        <span th:text="${t.description}"></span>
-        <div class="details">
-            Duration: <span th:text="${t.durationInMin}"></span> min<br>
-            Price: <span th:text="${t.price}"></span> RSD
-        </div>
-        <form th:action="@{'/reserve/' + ${t.name}}" method="get">
-            <button type="submit">Select</button>
-        </form>
-    </li>
-</ul>
-
+<div class="container">
+    <h1>Home</h1>
+    <nav>
+        <a th:href="@{/reviews}">Leave a Review</a>
+        <a th:href="@{/treatments}">View Treatments</a>
+    </nav>
+</div>
 </body>
 </html>
-<link rel="stylesheet" th:href="@{/css/style.css}">

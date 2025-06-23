@@ -1,13 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1>Hello</h1>
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <nav>
+        <a th:href="@{/admin/appointments}">All Appointments</a>
+        <a th:href="@{/admin/treatments}">Treatments</a>
+        <a th:href="@{/admin/reviews}">Reviews</a>
+        <a th:href="@{/admin/employees}">Employees</a>
+    </nav>
+</div>
 </body>
 </html>

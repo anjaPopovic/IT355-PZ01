@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Schedule Me</title>
+    <style>
+        body{
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+        h1{
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Schedule Me</h1>
+<h3>Choose a service you want</h3>
+
+<ul>
+    <li th:each="t : ${treatments}">
+        <strong th:text="${t.name}"></strong>
+        <span th:text="${t.description}"></span>
+        <div class="details">
+            Duration: <span th:text="${t.durationInMin}"></span> min<br>
+            Price: <span th:text="${t.price}"></span> RSD
+        </div>
+        <form th:action="@{'/reserve/' + ${t.name}}" method="get">
+            <button type="submit">Select</button>
+        </form>
+    </li>
+</ul>
+
+</body>
+</html>
+<link rel="stylesheet" th:href="@{/css/style.css}">

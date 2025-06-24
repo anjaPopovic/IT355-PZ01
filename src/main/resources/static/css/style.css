@@ -10,9 +10,16 @@ body {
     align-items: center;
     color: #fff;
     padding: 2rem;
+    min-height: 100vh;
 }
 
 h1 {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
@@ -94,8 +101,12 @@ button:hover {
     padding: 3rem 4rem;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
+    /*po potrebi ovo dole zakomentarisati*/
+    text-align: center;
+    margin: 0 auto;
+
 }
 
 /*for reservation*/
@@ -144,4 +155,97 @@ input[type="number"]:focus,
 textarea:focus {
     box-shadow: 0 0 8px 2px #667eea;
     background-color: #424a7d;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #333659;
+    color: #ddd;
+    transition: box-shadow 0.3s ease;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    box-shadow: 0 0 5px 2px #667eea;
+}
+
+.login-container {
+    background: #1f1f38;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.error {
+    margin-top: 1rem;
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.register-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    margin-left: 0.3rem;
+    color: #a3a3ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #c0c0ff;
+    text-decoration: underline;
+}
+
+/*for nav*/
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+nav a {
+    background-color: #667eea;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #5463d3;
+}
+
+.back-link {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    color: #a3a3ff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #c0c0ff;
+    text-decoration: underline;
 }

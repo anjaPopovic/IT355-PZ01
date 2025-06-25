@@ -8,74 +8,9 @@
     <title>Appointments</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
-
         body {
             flex-direction: column;
             justify-content: flex-start;
-        }
-
-        .table-container {
-            background: #1f1f38;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            width: 90%;
-            max-width: 1000px;
-            text-align: center;
-        }
-
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            color: #fff;
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-        }
-
-        th {
-            background-color: #2c2c50;
-            font-weight: 600;
-        }
-
-        tr:nth-child(even) {
-            background-color: #2a2a45;
-        }
-
-        tr:hover {
-            background-color: #3a3a60;
-        }
-
-        td {
-            color: #e0e0ff;
-        }
-
-        @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-
-            tr {
-                margin-bottom: 1rem;
-                background-color: #2a2a45;
-                border-radius: 8px;
-                padding: 1rem;
-            }
-
-            td::before {
-                content: attr(data-label);
-                font-weight: bold;
-                display: block;
-                margin-bottom: 0.3rem;
-                color: #a3a3ff;
-            }
-
-            th {
-                display: none;
-            }
         }
     </style>
 </head>

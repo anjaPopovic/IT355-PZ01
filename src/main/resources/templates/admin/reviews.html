@@ -1,29 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Reviews</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        body {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    </style>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th>Client</th>
-        <th>Rating</th>
-        <th>Comment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="r : ${reviews}">
-        <td th:text="${r.client.firstName + ' ' + r.client.lastName}"></td>
-        <td th:text="${r.rating}"></td>
-        <td th:text="${r.content}"></td>
-    </tr>
-    </tbody>
-</table>
-<a class="back-link" th:href="@{/admin/dashboard}">← Back to Dashboard</a>
+<div class="table-container">
+    <h1>All Reviews</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Client</th>
+            <th>Rating</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${reviews}">
+            <td th:text="${r.client.firstName + ' ' + r.client.lastName}"></td>
+            <td th:text="${r.rating}"></td>
+            <td th:text="${r.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="back-link" th:href="@{/admin/dashboard}">← Back to Dashboard</a>
+</div>
 </body>
 </html>

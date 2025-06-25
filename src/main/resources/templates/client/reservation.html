@@ -6,9 +6,7 @@
     <title>Reserve Treatment</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
-
         body {
-            min-height: 100vh;
             flex-direction: column;
             justify-content: center;
         }
@@ -34,32 +32,13 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #b0b3ff;
-        }
-
-        input[type="date"],
-        input[type="time"],
-        select {
-            padding: 12px 15px;
-            border-radius: 6px;
-            border: none;
-            font-size: 1rem;
-            outline: none;
-            background-color: #333659;
-            color: #ddd;
-            transition: box-shadow 0.3s ease;
-        }
-
-        input[type="date"]:focus,
-        input[type="time"]:focus,
-        select:focus {
-            box-shadow: 0 0 8px 2px #667eea;
-            background-color: #424a7d;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <h1>Reserve Treatment</h1>
-
+<div class="container">
 <form th:action="@{/reserve}" method="post">
     <input type="hidden" name="treatmentName" th:value="${treatment.name}" />
 
@@ -76,6 +55,7 @@
 
     <button type="submit">Confirm Reservation</button>
 </form>
+</div>
 </body>
 </html>
 

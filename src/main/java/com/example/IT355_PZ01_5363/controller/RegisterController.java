@@ -1,13 +1,14 @@
 package com.example.IT355_PZ01_5363.controller;
 
 import com.example.IT355_PZ01_5363.model.Client;
-import com.example.IT355_PZ01_5363.repository.DB;
 import com.example.IT355_PZ01_5363.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RegisterController {
@@ -19,22 +20,28 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String showRegistrationForm(Model model){
-        model.addAttribute("error", false);
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("client", new Client());
         return "register";
     }
 
     @PostMapping("/register")
-    public String handleRegistration(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String phoneNumber, @RequestParam String email, @RequestParam String username, @RequestParam String password, Model model){
-        if(clientService.clientAlreadyExists(username)){
+    public String handleRegistration(@ModelAttribute("client") @Valid Client client,
+                                     BindingResult result,
+                                     Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("error", "Please fill out all the fields");
+            return "register";
+        }
+        if (clientService.clientAlreadyExists(client.getUsername())) {
             model.addAttribute("error", "User already exists!");
             return "register";
         }
-
-        Client client = new Client(firstName, lastName, phoneNumber, email, username, password);
         clientService.registerClient(client);
-
         return "redirect:/";
     }
+
+
+
 
 }

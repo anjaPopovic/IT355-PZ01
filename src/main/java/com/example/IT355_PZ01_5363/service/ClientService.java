@@ -15,7 +15,12 @@ public class ClientService {
     }
 
     public boolean clientAlreadyExists(String username){
-        return db.getAllClients().stream().anyMatch(c -> c.getUsername().equalsIgnoreCase(username));
+        if (username == null || username.trim().isEmpty()) {
+            return false;
+        }
+
+        return db.getAllClients().stream()
+                .anyMatch(c -> c.getUsername().equalsIgnoreCase(username));
     }
 
     public void registerClient(Client client){

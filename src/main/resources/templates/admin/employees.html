@@ -30,9 +30,9 @@
         </thead>
         <tbody>
         <tr th:each="employee : ${employees}">
-            <td data-label="Name" th:text="${employee.name}"></td>
-            <td data-label="Specialization" th:text="${employee.specialization}"></td>
-            <td data-label="Treatments" th:text="${#strings.listJoin(employee.treatments, ', ')}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.specialization}"></td>
+            <td th:text="${#strings.listJoin(employee.treatments, ', ')}"></td>
         </tr>
         </tbody>
     </table>

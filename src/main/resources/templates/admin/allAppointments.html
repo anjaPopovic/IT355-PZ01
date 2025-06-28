@@ -31,11 +31,11 @@
         </thead>
         <tbody>
         <tr th:each="a : ${appointments}">
-            <td data-label="Client" th:text="${a.client.getFirstName() + ' ' + a.client.getLastName()}"></td>
-            <td data-label="Employee" th:text="${a.employee.getName()}"></td>
-            <td data-label="Treatments" th:text="${#strings.listJoin(a.treatment, ', ')}"></td>
-            <td data-label="Date" th:text="${a.date}"></td>
-            <td data-label="Time" th:text="${a.time}"></td>
+            <td th:text="${a.client.firstName + ' ' + a.client.lastName}"></td>
+            <td th:text="${a.employee.name}"></td>
+            <td th:text="${#strings.listJoin(a.treatment, ', ')}"></td>
+            <td th:text="${a.date}"></td>
+            <td  th:text="${a.time}"></td>
         </tr>
         </tbody>
     </table>

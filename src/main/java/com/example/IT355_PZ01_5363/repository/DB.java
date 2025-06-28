@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 @Getter
 public class DB {
-
     private final List<Client> allClients = new ArrayList<>();
     private final List<Employee> allEmployees = new ArrayList<>();
     private final List<Treatment> allTreatments = new ArrayList<>();

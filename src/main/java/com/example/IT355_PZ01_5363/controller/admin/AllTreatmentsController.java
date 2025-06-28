@@ -2,6 +2,7 @@ package com.example.IT355_PZ01_5363.controller.admin;
 
 import com.example.IT355_PZ01_5363.model.Treatment;
 import com.example.IT355_PZ01_5363.service.TreatmentService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,10 @@ public class AllTreatmentsController {
     }
 
     @GetMapping("/admin/treatments")
-    public String showTreatmentsAdmin(Model model){
+    public String showTreatmentsAdmin(Model model, HttpSession session){
+        if(!"ADMIN".equals(session.getAttribute("role"))){
+            return "redirect:/";
+        }
         model.addAttribute("treatments", treatmentService.getAllTreatments());
         return "admin/treatments";
     }

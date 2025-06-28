@@ -1,6 +1,7 @@
 package com.example.IT355_PZ01_5363.controller.admin;
 
 import com.example.IT355_PZ01_5363.repository.DB;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,10 @@ public class AllReviewsController {
     }
 
     @GetMapping("/admin/reviews")
-    public String showReviews(Model model){
+    public String showReviews(Model model, HttpSession session){
+        if(!"ADMIN".equals(session.getAttribute("role"))){
+            return "redirect:/";
+        }
         model.addAttribute("reviews", db.getAllReviews());
         return "admin/reviews";
     }

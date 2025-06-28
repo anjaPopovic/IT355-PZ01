@@ -9,13 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.Optional;
 
 @Controller
 public class LoginController {
-
     private final ClientService clientService;
 
     @Value("${admin.username}")
@@ -36,13 +34,12 @@ public class LoginController {
 
     @PostMapping("/")
     public String handleLogin(@RequestParam String username, @RequestParam String password, HttpSession session, Model model){
-        //admin
         if(username.equals(adminUsername) && password.equals(adminPassword)){
             session.setAttribute("role", "ADMIN");
             session.setAttribute("username", username);
             return "redirect:/admin/dashboard";
         }
-        //client
+
         Optional<Client> client = clientService.loginClient(username, password);
         if(client.isPresent()){
             session.setAttribute("role", "USER");

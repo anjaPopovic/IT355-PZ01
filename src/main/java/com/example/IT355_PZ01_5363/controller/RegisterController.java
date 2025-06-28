@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegisterController {
-
     private final ClientService clientService;
-
     public RegisterController(ClientService clientService) {
         this.clientService = clientService;
     }
@@ -26,9 +24,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String handleRegistration(@ModelAttribute("client") @Valid Client client,
-                                     BindingResult result,
-                                     Model model) {
+    public String handleRegistration(@ModelAttribute("client") @Valid Client client, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("error", "Please fill out all the fields");
             return "register";
@@ -40,8 +36,4 @@ public class RegisterController {
         clientService.registerClient(client);
         return "redirect:/";
     }
-
-
-
-
 }

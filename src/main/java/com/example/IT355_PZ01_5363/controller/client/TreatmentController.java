@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class TreatmentController {
-
     private final TreatmentService treatmentService;
-
     public TreatmentController(TreatmentService treatmentService) {
         this.treatmentService = treatmentService;
     }
@@ -19,5 +17,4 @@ public class TreatmentController {
         model.addAttribute("treatments", treatmentService.getAllTreatments());
         return "client/treatmentForm";
     }
-
 }

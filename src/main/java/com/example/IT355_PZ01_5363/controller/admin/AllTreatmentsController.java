@@ -13,7 +13,6 @@ import java.util.Optional;
 @Controller
 public class AllTreatmentsController {
     private final TreatmentService treatmentService;
-
     public AllTreatmentsController(TreatmentService treatmentService) {
         this.treatmentService = treatmentService;
     }
@@ -27,14 +26,12 @@ public class AllTreatmentsController {
         return "admin/treatments";
     }
 
-    //to delete treatment
     @PostMapping("/admin/treatments/deleteTreatment")
     public String handleDeleteTreatment(@RequestParam String name, @RequestParam String description){
         treatmentService.deleteTreatment(name, description);
         return "redirect:/admin/treatments";
     }
 
-    //to edit treatment
     @GetMapping("/admin/treatments/editTreatment")
     public String showEditTreatmentForm(@RequestParam String name, Model model){
         Optional<Treatment> treatment = treatmentService.getTreatmentByName(name);
@@ -51,12 +48,10 @@ public String handleEditTreatment(@RequestParam String originalName, @RequestPar
         return "redirect:/admin/treatments";
     }
 
-    //to add treatment
     @PostMapping("/admin/treatments/addTreatment")
     public String handleAddTreatment(@RequestParam String name, @RequestParam String description, @RequestParam int durationInMin, @RequestParam double price){
         Treatment treatment = new Treatment(name, description, durationInMin, price);
         treatmentService.addTreatment(treatment);
         return "redirect:/admin/treatments";
     }
-
 }

@@ -31,7 +31,7 @@ public class AppointmentController {
     @GetMapping("/reserve/{treatmentName}")
     public String showReservationForm(@PathVariable String treatmentName, Model model){
         Optional<Treatment> treatment = treatmentService.getTreatmentByName(treatmentName);
-        if(treatment.isEmpty()){
+        if (treatment.isEmpty()){
             return "redirect:/home";
         }
 
@@ -46,9 +46,10 @@ public class AppointmentController {
     @PostMapping("/reserve")
     public String handleReservation(@RequestParam String treatmentName, @RequestParam String employeeName, @RequestParam LocalDate date, @RequestParam LocalTime time, HttpSession session){
         String username = (String) session.getAttribute("username");
-        if(username == null) return "redirect:/";
+        if (username == null) {
+            return "redirect:/";
+        }
 
-        System.out.println(username);
         Optional<Client> chosenClient = appointmentService.getClient(username);
         Optional<Employee> chosenEmployee = appointmentService.getEmployee(employeeName);
         Optional<Treatment> chosenTreatment = treatmentService.getTreatmentByName(treatmentName);
@@ -56,7 +57,6 @@ public class AppointmentController {
         if(chosenClient.isPresent() && chosenEmployee.isPresent() && chosenTreatment.isPresent()){
             appointmentService.createAppointment(chosenClient.get(), chosenEmployee.get(), chosenTreatment.get(), date, time);
         }
-
         return "redirect:/confirmation";
     }
 
@@ -64,5 +64,4 @@ public class AppointmentController {
     public String showConfirmation(){
         return "client/confirmation";
     }
-
 }

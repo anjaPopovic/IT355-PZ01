@@ -29,9 +29,7 @@ public class ReviewController {
     }
 
     @PostMapping("/reviews")
-    public String handleReviews(@RequestParam("content") String content,
-                                @RequestParam("rating") int rating,
-                                HttpSession session) {
+    public String handleReviews(@RequestParam("content") String content, @RequestParam("rating") int rating, HttpSession session) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
             return "redirect:/";

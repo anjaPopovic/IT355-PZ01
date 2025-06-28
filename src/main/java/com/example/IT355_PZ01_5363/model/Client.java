@@ -19,6 +19,7 @@ public class Client {
     @NotBlank(message = "Last name is required")
     private String lastName;
 
+    @NotBlank(message = "Phone Number is required")
     @Pattern(regexp = "^[0-9+()\\-\\s]{6,20}$", message = "Invalid phone number format")
     private String phoneNumber;
 

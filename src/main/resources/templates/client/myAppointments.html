@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"> <!-- Uključi stil ako već nisi -->
+    <style>
+        body {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="table-container">
+
+    <h2>My Appointments</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Treatment</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Employee</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="a : ${appointments}">
+                <td th:text="${a.treatment.name}"></td>
+                <td th:text="${a.date}"></td>
+                <td th:text="${a.time}"></td>
+                <td th:text="${a.employee.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    <a class="back-link" th:href="@{/home}">← Nazad na početnu</a>
+</div>
+</body>
+</html>

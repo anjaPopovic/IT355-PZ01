@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @Service
 public class AppointmentService {
     private final DB db;
-
     public AppointmentService(DB db) {
         this.db = db;
     }
@@ -44,4 +43,11 @@ public class AppointmentService {
     public List<Appointment> getAllAppointments(){
         return db.getAllAppointments();
     }
+
+    public List<Appointment> getAppointmentsByClient(Client client) {
+        return db.getAllAppointments().stream()
+                .filter(a -> a.getClient().equals(client))
+                .toList();
+    }
+
 }

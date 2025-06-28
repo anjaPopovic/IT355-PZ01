@@ -4,6 +4,7 @@ import com.example.IT355_PZ01_5363.model.Client;
 import com.example.IT355_PZ01_5363.model.Employee;
 import com.example.IT355_PZ01_5363.model.Treatment;
 import com.example.IT355_PZ01_5363.service.AppointmentService;
+import com.example.IT355_PZ01_5363.service.ClientService;
 import com.example.IT355_PZ01_5363.service.TreatmentService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,12 @@ import java.util.Optional;
 
 @Controller
 public class AppointmentController {
+    private final ClientService clientService;
     private final AppointmentService appointmentService;
     private final TreatmentService treatmentService;
 
-    public AppointmentController(AppointmentService appointmentService, TreatmentService treatmentService) {
+    public AppointmentController(ClientService clientService, AppointmentService appointmentService, TreatmentService treatmentService) {
+        this.clientService = clientService;
         this.appointmentService = appointmentService;
         this.treatmentService = treatmentService;
     }
@@ -63,5 +66,18 @@ public class AppointmentController {
     @GetMapping("/confirmation") 
     public String showConfirmation(){
         return "client/confirmation";
+    }
+
+    @GetMapping("/myAppointments")
+    public String showMyAppointments(Model model, HttpSession session){
+        String username = (String) session.getAttribute("username");
+        if(username == null){
+            return "redirect:/";
+        }
+
+        Client client = clientService.findClientByUsername(username);
+
+        model.addAttribute("appointments", appointmentService.getAppointmentsByClient(client));
+        return "client/myAppointments";
     }
 }

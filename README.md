@@ -1,24 +1,27 @@
-Schedule Me
+# Schedule Me
 
-Made for IT355.
+Made for **IT355**.
+
+![image](https://github.com/user-attachments/assets/f109a773-1ad0-41c4-9a30-a824dbd7beb0)]
 
 
-### Clone the Repository
+## Clone the Repository
 
 Open terminal or Git Bash and run:
 
+```
 git clone https://github.com/anjaPopovic/IT355-PZ01.git
 cd IT355-PZ01
+```
 
+## With IDE:
 
-### With IDE:
-
-Prerequisites
+### Prerequisites
 
 The following items should be installed in your system:
-- Java 17+  
-- Maven 3.8+  
-- Any modern IDE (IntelliJ IDEA, Eclipse)
+-Java 17+  
+-Maven 3.8+  
+-Any modern IDE (IntelliJ IDEA, Eclipse)
 
 1. Open IntelliJ IDEA
 2. Click "Open" (not "Import")
@@ -27,5 +30,4 @@ The following items should be installed in your system:
 5. IntelliJ will automatically detect the pom.xml file and import it as a Maven project
 
 Application will be availlable at address:  http://localhost:8080
-
 

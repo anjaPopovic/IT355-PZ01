@@ -3,7 +3,6 @@ package com.example.IT355_PZ01_5363.repository;
 import com.example.IT355_PZ01_5363.model.*;
 import lombok.Getter;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 

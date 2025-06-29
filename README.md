@@ -2,7 +2,8 @@
 
 Made for **IT355**.
 
-![image](https://github.com/user-attachments/assets/f109a773-1ad0-41c4-9a30-a824dbd7beb0)]
+![home page-screenshot](https://github.com/user-attachments/assets/b71cbe87-a6fc-4f1b-8b88-3d769056f337)
+
 
 
 ## Clone the Repository
@@ -19,15 +20,16 @@ cd IT355-PZ01
 ### Prerequisites
 
 The following items should be installed in your system:
--Java 17+  
--Maven 3.8+  
--Any modern IDE (IntelliJ IDEA, Eclipse)
+- Java 17+  
+- Maven 3.8+  
+- Any modern IDE (IntelliJ IDEA, Eclipse)
 
+**Steps**:
 1. Open IntelliJ IDEA
 2. Click "Open" (not "Import")
 3. Navigate to the cloned folder (IT355-PZ01)
 4. Select the folder and click OK.
 5. IntelliJ will automatically detect the pom.xml file and import it as a Maven project
 
-Application will be availlable at address:  http://localhost:8080
+Application will be availlable at address: http://localhost:8080
 

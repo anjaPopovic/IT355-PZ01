@@ -5,7 +5,7 @@ Made for **IT355**.
 ![home page-screenshot](https://github.com/user-attachments/assets/b71cbe87-a6fc-4f1b-8b88-3d769056f337)
 
 
-##Get the project
+## Get the project
 
 You can either:
 

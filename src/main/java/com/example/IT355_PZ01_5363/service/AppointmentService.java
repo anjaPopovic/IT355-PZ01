@@ -25,7 +25,7 @@ public class AppointmentService {
        return db.getAllEmployees().stream().filter(e -> e.getTreatments().contains(treatment)).collect(Collectors.toList());
     }
 
-    //to get name of client
+    //to get the name of client
     public Optional<Client> getClient(String username){
         return db.getAllClients().stream().filter(c -> c.getUsername().equalsIgnoreCase(username)).findFirst();
     }

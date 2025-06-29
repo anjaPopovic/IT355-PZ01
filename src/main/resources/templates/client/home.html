@@ -7,16 +7,16 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<div th:if="${param.success}">
-    <p style="color: green; font-weight: bold;">Review successfully submitted!</p>
-</div>
 <div class="container">
+    <div th:if="${param.success}">
+        <p style="color: green; font-weight: bold;">Review successfully submitted!</p>
+    </div>
     <h1>Home</h1>
     <nav>
         <a th:href="@{/reviews}">Leave a Review</a>
         <a th:href="@{/treatments}">View Treatments</a>
-        <a th:href="@{/logout}">Logout</a>
         <a th:href="@{/myAppointments}">My Appointments</a>
+        <a th:href="@{/logout}">Logout</a>
     </nav>
 </div>
 </body>

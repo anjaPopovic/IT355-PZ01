@@ -7,6 +7,7 @@ import com.example.IT355_PZ01_5363.service.AppointmentService;
 import com.example.IT355_PZ01_5363.service.ClientService;
 import com.example.IT355_PZ01_5363.service.TreatmentService;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,16 +21,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequiredArgsConstructor
 public class AppointmentController {
     private final ClientService clientService;
     private final AppointmentService appointmentService;
     private final TreatmentService treatmentService;
-
-    public AppointmentController(ClientService clientService, AppointmentService appointmentService, TreatmentService treatmentService) {
-        this.clientService = clientService;
-        this.appointmentService = appointmentService;
-        this.treatmentService = treatmentService;
-    }
 
     @GetMapping("/reserve/{treatmentName}")
     public String showReservationForm(@PathVariable String treatmentName, Model model){

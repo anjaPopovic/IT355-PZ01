@@ -3,18 +3,16 @@ package com.example.IT355_PZ01_5363.service;
 import com.example.IT355_PZ01_5363.model.Treatment;
 import com.example.IT355_PZ01_5363.repository.DB;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class TreatmentService {
     private final DB db;
-
-    public TreatmentService(DB db) {
-        this.db = db;
-    }
 
     @PostConstruct
     public void initTreatments() {

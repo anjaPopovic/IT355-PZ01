@@ -2,17 +2,15 @@ package com.example.IT355_PZ01_5363.service;
 
 import com.example.IT355_PZ01_5363.model.Client;
 import com.example.IT355_PZ01_5363.repository.DB;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ClientService {
     private final DB db;
-
-    public ClientService(DB db) {
-        this.db = db;
-    }
 
     /**
      * registers a new client

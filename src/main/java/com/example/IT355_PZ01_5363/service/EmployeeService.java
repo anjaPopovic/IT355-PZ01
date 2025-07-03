@@ -3,16 +3,15 @@ package com.example.IT355_PZ01_5363.service;
 import com.example.IT355_PZ01_5363.model.Employee;
 import com.example.IT355_PZ01_5363.repository.DB;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeService {
     private final DB db;
-    public EmployeeService(DB db) {
-        this.db = db;
-    }
 
     @PostConstruct
     public void initEmployees() {

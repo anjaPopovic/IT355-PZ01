@@ -3,6 +3,7 @@ package com.example.IT355_PZ01_5363.controller;
 import com.example.IT355_PZ01_5363.model.Client;
 import com.example.IT355_PZ01_5363.service.ClientService;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
+@RequiredArgsConstructor
 public class LoginController {
     private final ClientService clientService;
 
@@ -21,10 +23,6 @@ public class LoginController {
 
     @Value("${admin.password}")
     private String adminPassword;
-
-    public LoginController(ClientService clientService) {
-        this.clientService = clientService;
-    }
 
     @GetMapping("/")
     public String showLoginForm(Model model){

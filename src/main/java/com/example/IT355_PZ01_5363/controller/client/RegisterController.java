@@ -1,8 +1,9 @@
-package com.example.IT355_PZ01_5363.controller;
+package com.example.IT355_PZ01_5363.controller.client;
 
 import com.example.IT355_PZ01_5363.model.Client;
 import com.example.IT355_PZ01_5363.service.ClientService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,11 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
     private final ClientService clientService;
-    public RegisterController(ClientService clientService) {
-        this.clientService = clientService;
-    }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {

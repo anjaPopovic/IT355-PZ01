@@ -6,12 +6,10 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
     private final DB db;
-
     public EmployeeService(DB db) {
         this.db = db;
     }
@@ -37,6 +35,10 @@ public class EmployeeService {
         }
     }
 
+    /**
+     *
+     * @return the list of all employees
+     */
     public List<Employee> getAllEmployees(){
         return db.getAllEmployees();
     }

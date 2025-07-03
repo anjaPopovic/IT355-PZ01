@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReviewService {
         private final DB db;
-
         public ReviewService(DB db) {
             this.db = db;
         }
 
-        public void addReview(Review review) {
+    /**
+     * adds a new review to the DB
+     * @param review new review to be added
+     */
+    public void addReview(Review review) {
             db.getAllReviews().add(review);
         }
 

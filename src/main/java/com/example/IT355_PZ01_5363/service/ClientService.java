@@ -14,26 +14,39 @@ public class ClientService {
         this.db = db;
     }
 
-    public boolean clientAlreadyExists(String username){
-        if (username == null || username.trim().isEmpty()) {
-            return false;
-        }
-
-        return db.getAllClients().stream()
-                .anyMatch(c -> c.getUsername().equalsIgnoreCase(username));
-    }
-
+    /**
+     * registers a new client
+     * @param client new client to be registered
+     */
     public void registerClient(Client client){
         db.getAllClients().add(client);
     }
 
+    /**
+     * attempts to login a client
+     * @param username username of existing client
+     * @param password password of existing client
+     * @return Optional containing the matched client or empty if not found
+     */
     public Optional<Client> loginClient(String username, String password){
           return db.getAllClients().stream().filter(c -> c.getUsername().equalsIgnoreCase(username) && c.getPassword().equalsIgnoreCase(password)).findFirst();
     }
 
-    //to find client by username for reviews
+    /**
+     * finds a client by their username
+     * @param username username
+     * @return the client if found, otherwise null
+     */
     public Client findClientByUsername(String username){
         return db.getAllClients().stream().filter(c -> c.getUsername().equalsIgnoreCase(username)).findFirst().orElse(null);
     }
+
+        /*public boolean clientAlreadyExists(String username){
+        if (username == null || username.trim().isEmpty()) {
+            return false;
+        }
+        return db.getAllClients().stream()
+                .anyMatch(c -> c.getUsername().equalsIgnoreCase(username));
+    }*/
 
 }

@@ -29,10 +29,11 @@ public class RegisterController {
             model.addAttribute("error", "Please fill out all the fields");
             return "register";
         }
+        /*
         if (clientService.clientAlreadyExists(client.getUsername())) {
             model.addAttribute("error", "User already exists!");
             return "register";
-        }
+        }*/
         clientService.registerClient(client);
         return "redirect:/";
     }

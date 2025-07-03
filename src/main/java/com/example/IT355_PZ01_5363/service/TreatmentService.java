@@ -37,21 +37,37 @@ public class TreatmentService {
        }
     }
 
+    /**
+     * returns the list of all treatments
+     * @return list of treatments
+     */
     public List<Treatment> getAllTreatments(){
         return db.getAllTreatments();
     }
 
-    //to select treatment
+    /**
+     * finds a treatment by its name
+     * @param name name of treatment
+     * @return Optional containing treatment if found, or empty if not
+     */
     public Optional<Treatment> getTreatmentByName(String name){
         return db.getAllTreatments().stream().filter(t -> t.getName().equalsIgnoreCase(name)).findFirst();
     }
 
-    //to delete treatment
+    /**
+     * deletes a treatment based on its name and description (description also because of the same name of treatments)
+     * @param name treatment name
+     * @param description treatment description
+     */
     public void deleteTreatment(String name, String description){
         db.getAllTreatments().removeIf(t -> t.getName().equalsIgnoreCase(name) && t.getDescription().equalsIgnoreCase(description));
     }
 
-    //to edit treatment
+    /**
+     * edits an existing treatment by replacing it with a new one
+     * @param originalName name of treatment to be replaced
+     * @param treatment new name of treatment
+     */
     public void editTreatment(String originalName, Treatment treatment){
         for(int i = 0; i < db.getAllTreatments().size(); i++){
             if(db.getAllTreatments().get(i).getName().equalsIgnoreCase(originalName)){
@@ -61,7 +77,10 @@ public class TreatmentService {
         }
     }
 
-    //to add treatment
+    /**
+     * add a new treatment to the DB
+     * @param treatment new treatment to be added
+     */
     public void addTreatment(Treatment treatment){
         db.addTreatment(treatment);
     }

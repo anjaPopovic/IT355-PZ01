@@ -20,17 +20,14 @@ public class AppointmentService {
         this.db = db;
     }
 
-    //to get all employees for chosen treatment
     public List<Employee> getEmployeesForTreatment(String treatment){
        return db.getAllEmployees().stream().filter(e -> e.getTreatments().contains(treatment)).collect(Collectors.toList());
     }
 
-    //to get the name of client
     public Optional<Client> getClient(String username){
         return db.getAllClients().stream().filter(c -> c.getUsername().equalsIgnoreCase(username)).findFirst();
     }
 
-    //to get name of employee chosen
     public Optional<Employee> getEmployee(String name){
         return db.getAllEmployees().stream().filter(e -> e.getName().equalsIgnoreCase(name)).findFirst();
     }
@@ -49,5 +46,4 @@ public class AppointmentService {
                 .filter(a -> a.getClient().equals(client))
                 .toList();
     }
-
 }
